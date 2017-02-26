@@ -17,7 +17,11 @@
 
 include device/lge/g2-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := lineageos_vs980_defconfig
+ifeq ($(WITH_TWRP),true)
+    TARGET_KERNEL_CONFIG := twrp_vs980_defconfig
+else
+    TARGET_KERNEL_CONFIG := lineageos_vs980_defconfig
+endif
 
 TARGET_OTA_ASSERT_DEVICE := vs980,g2,galbi
 
